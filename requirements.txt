@@ -1,0 +1,3 @@
+ipykernel 
+telethon
+python-dotenv

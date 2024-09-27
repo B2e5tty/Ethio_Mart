@@ -1,0 +1,6 @@
+.env
+myenv
+notebooks/telegram_data.csv
+notebooks/scraping_session.session
+.jpg
+notebooks/photos/
