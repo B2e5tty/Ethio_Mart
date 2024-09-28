@@ -1,0 +1,7 @@
+ipykernel 
+telethon
+python-dotenv
+transformer
+pdf2image
+nltk
+pytesseract
