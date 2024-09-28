@@ -15,19 +15,16 @@ api_id = os.getenv('TG_API_ID')
 api_hash = os.getenv('TG_API_HASH')
 phone = os.getenv('phone')
 
-print(api_id)
-print(api_hash)
-print(phone)
 
 # scrape data 
 async def scrape_channel(client, channel_username, writer, media_dir):
-    print('k')
+    # print('k')
     entity =  await client. get_entity(channel_username)
     channel_title = entity.title      # channel tittle
-    print('m')
+    # print('m')
 
     async for message in client.iter_messages(entity, limit = 500):
-        print('v')
+        # print('v')
         media_path = None
         if message.media and hasattr(message.media, 'photo'):
             filename = f"{channel_username}_{message.id}.jpg"
@@ -35,19 +32,17 @@ async def scrape_channel(client, channel_username, writer, media_dir):
             
             # download
             await client.download_media(message.media, media_path)
-            print('pp')
-        print('j')
+            # print('pp')
+        # print('j')
         # Write the channel title along with other data
         writer.writerow([channel_title, channel_username, message.id, message.message, message.date, media_path])
-        print('lk')
-# Intialize the client
-print('j')
-# client = TelegramClient('scraping_session', api_id, api_hash)
-print('i')
+        # print('lk')
+
+# print('i')
 
 async def main_def():
     try: 
-        print('p')
+        # print('p')
         async with TelegramClient('scraping_session', api_id, api_hash) as client:
             await client.start(phone=phone)
             print('Client started successfully')
@@ -55,16 +50,16 @@ async def main_def():
             # directory for image files
             media_dir = 'photos'
             os.makedirs(media_dir, exist_ok=True)
-            print('o')
+            # print('o')
 
              # prepare the CSV file
             with open('telegram_data.csv', 'w', newline='', encoding='utf-8') as file:
-                print('c')
+                # print('c')
                 writer = csv.writer(file)
                 writer.writerow(['Channel Title', 'Channel Username', 'ID', 'Message', 'Date', 'Media Path'])  # header
 
                 channel = '@sinayelj'
-                print('d')
+                # print('d')
 
                 await scrape_channel(client, channel, writer, media_dir)
                 print(f"Scraped data from {channel}")
