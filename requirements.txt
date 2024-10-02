@@ -6,3 +6,6 @@ pdf2image
 nltk
 pytesseract
 datasets
+seqeval
+shap
+lime
