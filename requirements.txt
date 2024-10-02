@@ -5,3 +5,4 @@ transformer
 pdf2image
 nltk
 pytesseract
+datasets
